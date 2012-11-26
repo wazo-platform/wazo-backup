@@ -36,7 +36,7 @@ case "${BACKUP_TYPE}" in
                  /etc/resolv.conf
                  /etc/hosts
                  /etc/hostname
-                 /var/lib/pf-xivo-provd/
+                 /var/lib/xivo-provd/
                  /usr/local/sbin/"
     FILTER_DIRS="/var/lib/pf-xivo/sounds
                  /var/lib/asterisk/sounds/custom
