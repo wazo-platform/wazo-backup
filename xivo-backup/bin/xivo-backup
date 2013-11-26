@@ -23,20 +23,21 @@ case "${BACKUP_TYPE}" in
     BACKUP_LIST="/etc/asterisk/
                  /etc/dahdi/
                  /etc/dhcp/
-                 /etc/pf-xivo/
-                 /etc/wanpipe/
-                 /etc/ssl/
+                 /etc/hostname
+                 /etc/hosts
                  /etc/ldap/
+                 /etc/network/if-up.d/xivo-routes
+                 /etc/network/interfaces
+                 /etc/ntp.conf
+                 /etc/pf-xivo/
+                 /etc/resolv.conf
+                 /etc/ssl/
+                 /etc/wanpipe/
                  /var/lib/asterisk/
                  /var/lib/pf-xivo/
-                 /var/spool/asterisk/
-                 /var/log/asterisk/
-                 /etc/network/interfaces
-                 /etc/network/if-up.d/xivo-routes
-                 /etc/resolv.conf
-                 /etc/hosts
-                 /etc/hostname
                  /var/lib/xivo-provd/
+                 /var/log/asterisk/
+                 /var/spool/asterisk/
                  /usr/local/sbin/"
     FILTER_DIRS="/var/lib/pf-xivo/sounds
                  /var/lib/asterisk/sounds/custom
