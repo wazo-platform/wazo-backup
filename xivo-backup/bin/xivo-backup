@@ -28,6 +28,7 @@ case "${BACKUP_TYPE}" in
                  /etc/ldap/
                  /etc/network/if-up.d/xivo-routes
                  /etc/network/interfaces
+                 /etc/ntp.conf
                  /etc/pf-xivo/
                  /etc/resolv.conf
                  /etc/ssl/
