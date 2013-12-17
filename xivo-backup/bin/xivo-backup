@@ -11,10 +11,10 @@ if [ -z "${BACKUP_FILE}" ]; then
     exit 1
 fi
 
-[ -e /etc/pf-xivo/common.conf ] && . /etc/pf-xivo/common.conf
+[ -e /etc/xivo/common.conf ] && . /etc/xivo/common.conf
 DEFAULT_MAX_SOUND_FILE_SIZE=10M
 DEFAULT_MAX_FILES_PER_SOUND_DIR=100
-XIVO_VERSION=$(cat /usr/share/pf-xivo/XIVO-VERSION)
+XIVO_VERSION=$(cat /usr/share/xivo/XIVO-VERSION)
 BACKUP_FILE=${BACKUP_FILE}.tgz
 
 
@@ -29,17 +29,17 @@ case "${BACKUP_TYPE}" in
                  /etc/network/if-up.d/xivo-routes
                  /etc/network/interfaces
                  /etc/ntp.conf
-                 /etc/pf-xivo/
+                 /etc/xivo/
                  /etc/resolv.conf
                  /etc/ssl/
                  /etc/wanpipe/
                  /var/lib/asterisk/
-                 /var/lib/pf-xivo/
+                 /var/lib/xivo/
                  /var/lib/xivo-provd/
                  /var/log/asterisk/
                  /var/spool/asterisk/
                  /usr/local/sbin/"
-    FILTER_DIRS="/var/lib/pf-xivo/sounds
+    FILTER_DIRS="/var/lib/xivo/sounds
                  /var/lib/asterisk/sounds/custom
                  /var/lib/asterisk/moh
                  /var/spool/asterisk/voicemail
