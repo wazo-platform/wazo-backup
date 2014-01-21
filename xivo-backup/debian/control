@@ -1,0 +1,22 @@
+Source: xivo-backup
+Section: comm
+Priority: extra
+Maintainer: XiVO Dev Team <dev@avencall.com>
+Uploaders: XiVO Builder Team <release@xivo.fr>
+Build-Depends: cdbs (>= 0.4.23-1.1), debhelper (>= 5)
+Standards-Version: 3.7.2.2
+
+Package: xivo-backup
+Architecture: all
+Provides: pf-xivo-backup
+Conflicts: pf-xivo-backup
+Replaces: pf-xivo-backup
+Description: XIVO backup scripts
+ XIVO is a system based on a powerful IPBX, to bring an easy to
+ install solution for telephony and related services.
+ .
+ This package ensure a local backup of the configuration and
+ data (with databases), to be able to rollback to a previous
+ working setup, and have files collected for remote backups.
+ .
+  Homepage: http://xivo.fr/

@@ -1,0 +1,18 @@
+/var/backups/xivo/data.tgz {
+	daily
+	rotate 7
+	nocompress
+	create 640 root www-data
+	postrotate
+		/usr/sbin/xivo-backup data /var/backups/xivo/data
+	endscript
+}
+/var/backups/xivo/db.tgz {
+	daily
+	rotate 7
+	nocompress
+	create 640 root www-data
+	postrotate
+		/usr/sbin/xivo-backup db /var/backups/xivo/db
+	endscript
+}

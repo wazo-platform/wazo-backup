@@ -1,0 +1,35 @@
+xivo-backup (12.21~20121023.125432.8022a91-6) squeeze-xivo-skaro-dev; urgency=low
+
+  * fix pre-depends
+
+ -- Cedric Abunar (cabunar) <cabunar@avencall.com>  Tue, 23 Oct 2012 14:35:07 -0400
+
+xivo-backup (12.21~20121023.125432.8022a91-5) squeeze-xivo-skaro-dev; urgency=low
+
+  * fix move old directory backup 
+
+ -- Cedric Abunar (cabunar) <cabunar@avencall.com>  Tue, 23 Oct 2012 11:56:51 -0400
+
+xivo-backup (12.21~20121023.125432.8022a91-4) squeeze-xivo-skaro-dev; urgency=low
+
+  * fix clean old directory backup
+
+ -- Cedric Abunar (cabunar) <cabunar@avencall.com>  Tue, 23 Oct 2012 11:13:04 -0400
+
+xivo-backup (12.21~20121023.125432.8022a91-3) squeeze-xivo-skaro-dev; urgency=low
+
+  * fix target is not a directory
+
+ -- Cedric Abunar (cabunar) <cabunar@avencall.com>  Tue, 23 Oct 2012 10:25:17 -0400
+
+xivo-backup (12.21~20121023.125432.8022a91-2) squeeze-xivo-skaro-dev; urgency=low
+
+  * fix version
+
+ -- Cedric Abunar (cabunar) <cabunar@avencall.com>  Tue, 23 Oct 2012 10:12:14 -0400
+
+xivo-backup (0.1) squeeze-xivo-skaro-dev; urgency=low
+
+  * Initial release.
+
+ -- Cedric Abunar (cabunar) <cabunar@avencall.com> Tue, 23 Oct 2012 09:29:34 -0400
