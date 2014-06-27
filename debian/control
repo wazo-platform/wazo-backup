@@ -2,7 +2,7 @@ Source: xivo-backup
 Section: comm
 Priority: extra
 Maintainer: XiVO Dev Team <dev@avencall.com>
-Uploaders: XiVO Builder Team <release@xivo.fr>
+Uploaders: XiVO Builder Team <release@xivo.io>
 Build-Depends: cdbs (>= 0.4.23-1.1), debhelper (>= 5)
 Standards-Version: 3.7.2.2
 
@@ -19,4 +19,4 @@ Description: XIVO backup scripts
  data (with databases), to be able to rollback to a previous
  working setup, and have files collected for remote backups.
  .
-  Homepage: http://xivo.fr/
+  Homepage: http://xivo.io/
