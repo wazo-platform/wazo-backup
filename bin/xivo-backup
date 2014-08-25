@@ -42,6 +42,7 @@ case "${BACKUP_TYPE}" in
     FILTER_DIRS="/var/lib/xivo/sounds
                  /var/lib/asterisk/sounds/custom
                  /var/lib/asterisk/moh
+                 /var/lib/xivo-provd/plugins/*/var/cache
                  /var/spool/asterisk/voicemail
                  /var/spool/asterisk/monitor"
     EXCLUDE_FILES="/var/spool/asterisk/monitor
