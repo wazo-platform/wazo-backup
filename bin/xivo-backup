@@ -44,7 +44,8 @@ case "${BACKUP_TYPE}" in
                  /var/lib/asterisk/moh
                  /var/spool/asterisk/voicemail
                  /var/spool/asterisk/monitor"
-    EXCLUDE_FILES="/var/spool/asterisk/monitor
+    EXCLUDE_FILES="/var/lib/xivo-provd/plugins/*/var/cache
+                   /var/spool/asterisk/monitor
                    /var/spool/asterisk/meetme"
 
     # backup existing directories only
