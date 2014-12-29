@@ -84,7 +84,7 @@ case "${BACKUP_TYPE}" in
 
     # ... as well as in backup list
     TAR_WOULD_BACKUP=$(echo "${WOULD_BACKUP}" | sed -r 's#(^| )/#\1#g')
-    tar cpz -C / --exclude-from=${EXCL_FILE} --ignore-failed-read -f ${BACKUP_FILE} ${TAR_WOULD_BACKUP} >/dev/null
+    nice -n 19 ionice -c 3 tar cpzf ${BACKUP_FILE} -C / --exclude-from=${EXCL_FILE} --ignore-failed-read ${TAR_WOULD_BACKUP} >/dev/null
 
     rm -rf ${EXCL_FILE}
     ;;
@@ -95,10 +95,10 @@ case "${BACKUP_TYPE}" in
     mkdir ${PG_TMPDIR}
 
     cd /var/lib/postgresql
-    sudo -u postgres pg_dump -Fc asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
+    sudo -u postgres nice -n 19 ionice -c 3 pg_dump -Fc asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
     cd ${OLDPWD}
 
-    tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
+    nice -n 19 ionice -c 3 tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
     rm -r ${TMPDIR}
     ;;
   *)
