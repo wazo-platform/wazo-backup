@@ -11,6 +11,9 @@ if [ -z "${BACKUP_FILE}" ]; then
     exit 1
 fi
 
+renice 19 "$$" >/dev/null
+ionice -c 3 -p "$$"
+
 [ -e /etc/xivo/common.conf ] && . /etc/xivo/common.conf
 DEFAULT_MAX_SOUND_FILE_SIZE=10M
 DEFAULT_MAX_FILES_PER_SOUND_DIR=100
@@ -84,7 +87,7 @@ case "${BACKUP_TYPE}" in
 
     # ... as well as in backup list
     TAR_WOULD_BACKUP=$(echo "${WOULD_BACKUP}" | sed -r 's#(^| )/#\1#g')
-    nice -n 19 ionice -c 3 tar cpzf ${BACKUP_FILE} -C / --exclude-from=${EXCL_FILE} --ignore-failed-read ${TAR_WOULD_BACKUP} >/dev/null
+    tar cpzf ${BACKUP_FILE} -C / --exclude-from=${EXCL_FILE} --ignore-failed-read ${TAR_WOULD_BACKUP} >/dev/null
 
     rm -rf ${EXCL_FILE}
     ;;
@@ -95,10 +98,10 @@ case "${BACKUP_TYPE}" in
     mkdir ${PG_TMPDIR}
 
     cd /var/lib/postgresql
-    sudo -u postgres nice -n 19 ionice -c 3 pg_dump -Fc asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
+    sudo -u postgres pg_dump -Fc asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
     cd ${OLDPWD}
 
-    nice -n 19 ionice -c 3 tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
+    tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
     rm -r ${TMPDIR}
     ;;
   *)
