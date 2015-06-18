@@ -52,6 +52,7 @@ case "${BACKUP_TYPE}" in
                  /etc/ssl/
                  /etc/wanpipe/
                  /var/lib/asterisk/
+                 /var/lib/consul/
                  /var/lib/xivo/
                  /var/lib/xivo-provd/
                  /var/log/asterisk/
