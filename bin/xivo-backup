@@ -57,7 +57,8 @@ case "${BACKUP_TYPE}" in
                  /var/lib/xivo-provd/
                  /var/log/asterisk/
                  /var/spool/asterisk/
-                 /usr/local/sbin/"
+                 /usr/local/sbin/
+                 /usr/share/xivo/XIVO-VERSION"
     FILTER_DIRS="/var/lib/xivo/sounds
                  /var/lib/asterisk/sounds/custom
                  /var/lib/asterisk/moh
