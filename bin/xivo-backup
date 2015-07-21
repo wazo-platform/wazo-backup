@@ -47,7 +47,9 @@ case "${BACKUP_TYPE}" in
                  /etc/network/if-up.d/xivo-routes
                  /etc/network/interfaces
                  /etc/ntp.conf
-                 /etc/xivo/
+                 /etc/resolv.conf
+                 /etc/ssl/
+                 /etc/wanpipe/
                  /etc/xivo-agentd/
                  /etc/xivo-agid/
                  /etc/xivo-amid/
@@ -59,17 +61,15 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-dird/
                  /etc/xivo-dxtora/
                  /etc/xivo-purge-db/
-                 /etc/resolv.conf
-                 /etc/ssl/
-                 /etc/wanpipe/
+                 /etc/xivo/
+                 /usr/local/sbin/
+                 /usr/share/xivo/XIVO-VERSION
                  /var/lib/asterisk/
                  /var/lib/consul/
-                 /var/lib/xivo/
                  /var/lib/xivo-provd/
+                 /var/lib/xivo/
                  /var/log/asterisk/
-                 /var/spool/asterisk/
-                 /usr/local/sbin/
-                 /usr/share/xivo/XIVO-VERSION"
+                 /var/spool/asterisk/"
     FILTER_DIRS="/var/lib/xivo/sounds
                  /var/lib/asterisk/sounds/custom
                  /var/lib/asterisk/moh
