@@ -48,17 +48,17 @@ case "${BACKUP_TYPE}" in
                  /etc/network/interfaces
                  /etc/ntp.conf
                  /etc/xivo/
-                 /etc/xivo-agentd
-                 /etc/xivo-agid
-                 /etc/xivo-amid
-                 /etc/xivo-auth
-                 /etc/xivo-call-logd
-                 /etc/xivo-confd
-                 /etc/xivo-confgend-client
-                 /etc/xivo-ctid
-                 /etc/xivo-dird
-                 /etc/xivo-dxtora
-                 /etc/xivo-purge-db
+                 /etc/xivo-agentd/
+                 /etc/xivo-agid/
+                 /etc/xivo-amid/
+                 /etc/xivo-auth/
+                 /etc/xivo-call-logd/
+                 /etc/xivo-confd/
+                 /etc/xivo-confgend-client/
+                 /etc/xivo-ctid/
+                 /etc/xivo-dird/
+                 /etc/xivo-dxtora/
+                 /etc/xivo-purge-db/
                  /etc/resolv.conf
                  /etc/ssl/
                  /etc/wanpipe/
