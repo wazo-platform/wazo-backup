@@ -1,0 +1,21 @@
+sync:
+  image: n3llyb0y/wait
+  links:
+    - consul
+  environment:
+    PORTS: "8500"
+backup:
+   image: xivo-backup-test
+   volumes:
+     - "../../..:/usr/src/xivo-backup"
+   links:
+     - "consul"
+consul:
+  image: progrium/consul
+  expose:
+    - "8500"
+  ports:
+    - "8500:8500"
+  volumes:
+    - "./etc/consul:/etc/consul"
+  command: "-client 0.0.0.0 -config-dir /etc/consul/"

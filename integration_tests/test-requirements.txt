@@ -1,0 +1,4 @@
+docker-compose
+pyhamcrest
+nose
+python-consul==0.4.2
