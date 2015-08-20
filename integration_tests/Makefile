@@ -5,7 +5,8 @@ test-setup:
 	docker pull n3llyb0y/wait
 	docker pull progrium/consul
 	docker build -t xivo/xivo-backup ..
-	docker build --no-cache -t xivo-backup-test -f Dockerfile ..
+	docker build -t xivo-backup-tests -f Dockerfile ..
+	docker build -t xivo-backup-tests-data -f Dockerfile-data ..
 
 test:
 	nosetests

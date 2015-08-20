@@ -49,9 +49,9 @@ class BaseBackupIntegrationTest(unittest.TestCase):
         os.chdir(cls.oldpwd)
 
     @staticmethod
-    def _run_cmd(cmd):
-        process = subprocess.Popen(cmd.split(' '), stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        out, _ = process.communicate()
+    def _run_cmd(cmd, input_=None):
+        process = subprocess.Popen(cmd.split(' '), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        out, _ = process.communicate(input_)
         logger.info(out)
         return out
 
@@ -70,8 +70,11 @@ class BaseBackupIntegrationTest(unittest.TestCase):
         return cls._run_cmd('docker-compose run --rm backup {command}'.format(command=backup_command))
 
     @classmethod
-    def restore(cls):
-        return cls._run_cmd('docker-compose run --rm restore')
+    def restore(cls, input_, args=''):
+        args = args or '-H consul -t {token}'.format(token=DEFAULT_TOKEN)
+        restore_command = 'xivo-restore-consul-kv {args}'.format(args=args)
+        return cls._run_cmd('docker-compose run --rm backup {command}'.format(command=restore_command),
+                            input_=input_)
 
     @classmethod
     def consul(cls, **kwargs):

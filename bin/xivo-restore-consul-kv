@@ -42,24 +42,28 @@ def main():
                         '--token',
                         action='store',
                         help="Consul token. Default: taken from {token_file}".format(token_file=TOKEN_FILE))
-    parser.add_argument('-o',
-                        '--output',
+    parser.add_argument('-i',
+                        '--input',
                         action='store',
-                        help="File where to write the output. Default: stdout")
+                        help="File where to read the input. Default: stdin")
     args = parser.parse_args()
     args.token = args.token or read_token_file()
 
-    consul = Consul(host=args.host, port=args.port, token=args.token)
-    consul_data = consul.kv.get('xivo', recurse=True)
+    with (open(args.input, 'r') if args.input else sys.stdin) as input_:
+        consul_data = json.loads(input_.read())
 
-    with (open(args.output, 'w') if args.output else sys.stdout) as output:
-        output.write(json.dumps(consul_data, indent=4))
+    consul_kv = consul_data[1] or []
+
+    consul = Consul(host=args.host, port=args.port, token=args.token)
+    for kv in consul_kv:
+        consul.kv.put(kv['Key'], kv['Value'], flags=kv['Flags'])
 
 
 def read_token_file():
     with open(TOKEN_FILE, 'r') as token_file:
         token = token_file.read().strip()
     return token
+
 
 if __name__ == '__main__':
     main()
