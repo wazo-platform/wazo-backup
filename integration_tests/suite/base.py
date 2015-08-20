@@ -23,11 +23,18 @@ import unittest
 
 from consul import Consul
 from consul import ConsulException
+from hamcrest import assert_that
+from hamcrest import none
 
 logger = logging.getLogger(__name__)
 ASSETS_ROOT = os.path.join(os.path.dirname(__file__), '..', 'assets')
 
 DEFAULT_TOKEN = 'the_one_ring'
+DEFAULT_CONSUL_ARGS = {
+    'host': 'localhost',
+    'port': 8500,
+    'token': DEFAULT_TOKEN
+}
 
 
 class BaseBackupIntegrationTest(unittest.TestCase):
@@ -42,6 +49,18 @@ class BaseBackupIntegrationTest(unittest.TestCase):
         os.chdir(asset_path)
         cls._run_cmd('docker-compose rm --force')
         cls._run_cmd('docker-compose run --rm sync')
+        cls.wait_for_consul(**cls.consul_args)  # consul may still be busy electing himself...
+
+    @classmethod
+    def wait_for_consul(cls, **kwargs):
+        for _ in xrange(10):
+            try:
+                Consul(**kwargs).kv.get('fullybooted')
+                return
+            except ConsulException:
+                time.sleep(.5)
+        else:
+            Consul(**kwargs).kv.get('fullybooted')
 
     @classmethod
     def stop_with_asset(cls):
@@ -50,7 +69,10 @@ class BaseBackupIntegrationTest(unittest.TestCase):
 
     @staticmethod
     def _run_cmd(cmd, input_=None):
-        process = subprocess.Popen(cmd.split(' '), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        process = subprocess.Popen(cmd.split(' '),
+                                   stdin=subprocess.PIPE,
+                                   stdout=subprocess.PIPE,
+                                   stderr=subprocess.STDOUT)
         out, _ = process.communicate(input_)
         logger.info(out)
         return out
@@ -77,21 +99,13 @@ class BaseBackupIntegrationTest(unittest.TestCase):
                             input_=input_)
 
     @classmethod
-    def consul(cls, **kwargs):
-        kwargs.setdefault('host', 'localhost')
-        kwargs.setdefault('port', 8500)
-        kwargs.setdefault('token', DEFAULT_TOKEN)
-        cls.wait_for_consul(**kwargs)  # consul may still be busy electing himself...
-        return Consul(**kwargs)
+    def clear_consul(cls):
+        cls.consul().kv.delete('', recurse=True)
+        result = cls.consul().kv.get('', recurse=True)
+        assert_that(result[1], none())
 
     @classmethod
-    def wait_for_consul(cls, **kwargs):
-        for _ in xrange(10):
-            try:
-                Consul(**kwargs).kv.get('fullybooted')
-                return
-            except ConsulException as e:
-                last_exception = e
-                time.sleep(.5)
-        else:
-            raise Exception('Consul unreachable: {}'.format(last_exception))
+    def consul(cls, **kwargs):
+        consul_args = dict(cls.consul_args)
+        consul_args.update(kwargs)
+        return Consul(**consul_args)
