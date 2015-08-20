@@ -53,7 +53,7 @@ def main():
     consul_data = consul.kv.get('xivo', recurse=True)
 
     with (open(args.output, 'w') if args.output else sys.stdout) as output:
-        output.write(json.dumps(consul_data, indent=4))
+        output.write(json.dumps(consul_data))
 
 
 def read_token_file():
