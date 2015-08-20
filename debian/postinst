@@ -20,12 +20,12 @@ case "$1" in
             find $old_bck_path -type f -exec mv {} $bck_path \;
             rm -rf "$old_bck_path"
         fi
-        
+
         if [ -f "$old_logrotate_file" ];
         then
             rm "$old_logrotate_file"
         fi
-        
+
         for file in $xivo_files $db_file $consul_file; do
             if [ ! -f "$file" ];
             then
@@ -34,15 +34,15 @@ case "$1" in
                 chown root:www-data "$file"
             fi
         done
-    ;;  
+    ;;
     abort-upgrade|abort-remove|abort-deconfigure)
-    
-    ;;  
 
-    *)  
-        echo "postinst called with unknown argument \`$1'" >&2 
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
         exit 1
-    ;;  
+    ;;
 esac
 
 # dh_installdeb will replace this with shell code automatically
