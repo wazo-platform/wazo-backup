@@ -11,6 +11,7 @@ old_logrotate_file="/etc/logrotate.d/pf-xivo-backup"
 bck_path="/var/backups/xivo"
 xivo_files="$bck_path/data.tgz"
 db_file="$bck_path/db.tgz"
+consul_file="$bck_path/consul-kv.json"
 
 case "$1" in
     configure)
@@ -25,7 +26,7 @@ case "$1" in
             rm "$old_logrotate_file"
         fi
         
-        for file in $xivo_files $db_file; do
+        for file in $xivo_files $db_file $consul_file; do
             if [ ! -f "$file" ];
             then
                 touch -d 19700101 "$file"

@@ -16,7 +16,7 @@
 		/usr/sbin/xivo-backup db /var/backups/xivo/db
 	endscript
 }
-/var/backups/xivo/consul-kv.json.gz {
+/var/backups/xivo/consul-kv.json {
 	daily
 	rotate 7
 	compress
