@@ -88,13 +88,13 @@ class BaseBackupIntegrationTest(unittest.TestCase):
     @classmethod
     def backup(cls, args=''):
         args = args or '-H consul -t {token}'.format(token=DEFAULT_TOKEN)
-        backup_command = 'xivo-backup-consul-kv {args}'.format(args=args)
+        backup_command = 'python xivo-backup-consul-kv {args}'.format(args=args)
         return cls._run_cmd('docker-compose run --rm backup {command}'.format(command=backup_command))
 
     @classmethod
     def restore(cls, input_, args=''):
         args = args or '-H consul -t {token}'.format(token=DEFAULT_TOKEN)
-        restore_command = 'xivo-restore-consul-kv {args}'.format(args=args)
+        restore_command = 'python xivo-restore-consul-kv {args}'.format(args=args)
         return cls._run_cmd('docker-compose run --rm backup {command}'.format(command=restore_command),
                             input_=input_)
 
