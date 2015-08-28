@@ -1,0 +1,29 @@
+sync:
+  image: n3llyb0y/wait
+  links:
+    - consul
+    - data
+  environment:
+    PORTS: "8500"
+backup:
+   image: xivo-backup-tests
+   volumes:
+     - "../../..:/usr/src/xivo-backup"
+   volumes_from:
+       - "data"
+   links:
+     - "consul"
+consul:
+  image: progrium/consul
+  expose:
+    - "8500"
+  ports:
+    - "8500:8500"
+  volumes:
+    - "./etc/consul:/etc/consul"
+  command: "-client 0.0.0.0 -config-dir /etc/consul/"
+data:
+  image: xivo-backup-tests-data
+  volumes:
+    - "/var/tmp/"
+  command: "sh -c 'while true; do sleep 10; done'"

@@ -1,0 +1,65 @@
+#!/usr/bin/python
+
+# -*- coding: utf-8 -*-
+# Copyright (C) 2015 Avencall
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+
+import argparse
+import json
+import sys
+
+from consul import Consul
+
+TOKEN_FILE = '/var/lib/consul/master_token'
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-H',
+                        '--host',
+                        action='store',
+                        default='localhost',
+                        help="Consul host name. Default: %(default)s")
+    parser.add_argument('-p',
+                        '--port',
+                        action='store',
+                        default=8500,
+                        type=int,
+                        help="Consul port. Default: %(default)s")
+    parser.add_argument('-t',
+                        '--token',
+                        action='store',
+                        help="Consul token. Default: taken from {token_file}".format(token_file=TOKEN_FILE))
+    parser.add_argument('-o',
+                        '--output',
+                        action='store',
+                        help="File where to write the output. Default: stdout")
+    args = parser.parse_args()
+    args.token = args.token or read_token_file()
+
+    consul = Consul(host=args.host, port=args.port, token=args.token)
+    consul_data = consul.kv.get('xivo', recurse=True)
+
+    with (open(args.output, 'w') if args.output else sys.stdout) as output:
+        output.write(json.dumps(consul_data))
+
+
+def read_token_file():
+    with open(TOKEN_FILE, 'r') as token_file:
+        token = token_file.read().strip()
+    return token
+
+if __name__ == '__main__':
+    main()

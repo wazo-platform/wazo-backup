@@ -16,3 +16,12 @@
 		/usr/sbin/xivo-backup db /var/backups/xivo/db
 	endscript
 }
+/var/backups/xivo/consul-kv.json {
+	daily
+	rotate 7
+	compress
+	create 640 root www-data
+	postrotate
+		/usr/sbin/xivo-backup-consul-kv -o /var/backups/xivo/consul-kv.json
+	endscript
+}
