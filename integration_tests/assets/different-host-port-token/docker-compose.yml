@@ -5,7 +5,7 @@ sync:
   environment:
     PORTS: "8501"
 backup:
-   image: xivo-backup-test
+   image: xivo-backup-tests
    volumes:
      - "../../..:/usr/src/xivo-backup"
    links:
