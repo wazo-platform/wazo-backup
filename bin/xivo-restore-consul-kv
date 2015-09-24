@@ -56,13 +56,19 @@ def main():
 
     consul = Consul(host=args.host, port=args.port, token=args.token)
     for kv in consul_kv:
-        consul.kv.put(kv['Key'], kv['Value'], flags=kv['Flags'])
+        consul.kv.put(encode_utf8(kv['Key']), encode_utf8(kv['Value']), flags=encode_utf8(kv['Flags']))
 
 
 def read_token_file():
     with open(TOKEN_FILE, 'r') as token_file:
         token = token_file.read().strip()
     return token
+
+
+def encode_utf8(value):
+    if isinstance(value, unicode):
+        return value.encode('utf-8')
+    return value
 
 
 if __name__ == '__main__':
