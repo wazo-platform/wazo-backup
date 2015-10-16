@@ -116,7 +116,7 @@ case "${BACKUP_TYPE}" in
 
     # ... as well as in backup list
     TAR_WOULD_BACKUP=$(echo "${WOULD_BACKUP}" | sed -r 's#(^| )/#\1#g')
-    tar cpzf ${BACKUP_FILE} -C / --exclude-from=${EXCL_FILE} --ignore-failed-read ${TAR_WOULD_BACKUP} >/dev/null
+    tar cpzf ${BACKUP_FILE} -C / --exclude-from=${EXCL_FILE} --ignore-failed-read --warning=no-file-changed ${TAR_WOULD_BACKUP} >/dev/null
 
     rm -rf ${EXCL_FILE}
     ;;
