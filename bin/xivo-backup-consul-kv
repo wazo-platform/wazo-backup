@@ -42,14 +42,23 @@ def main():
                         '--token',
                         action='store',
                         help="Consul token. Default: taken from {token_file}".format(token_file=TOKEN_FILE))
+    parser.add_argument('--scheme',
+                        action='store',
+                        default='https',
+                        help="Consul HTTP scheme. Default: %(default)s")
+    parser.add_argument('--verify',
+                        action='store',
+                        default='/usr/share/xivo-certs/server.crt',
+                        help="When using HTTPS, how certificate are verified. Default: %(default)s")
     parser.add_argument('-o',
                         '--output',
                         action='store',
                         help="File where to write the output. Default: stdout")
     args = parser.parse_args()
     args.token = args.token or read_token_file()
+    args.verify = convert_arg_verify(args.verify)
 
-    consul = Consul(host=args.host, port=args.port, token=args.token)
+    consul = Consul(host=args.host, port=args.port, token=args.token, scheme=args.scheme, verify=args.verify)
     consul_data = consul.kv.get('xivo', recurse=True)
 
     with (open(args.output, 'w') if args.output else sys.stdout) as output:
@@ -60,6 +69,16 @@ def read_token_file():
     with open(TOKEN_FILE, 'r') as token_file:
         token = token_file.read().strip()
     return token
+
+
+def convert_arg_verify(value):
+    if value.lower() == 'true':
+        return True
+    elif value.lower() == 'false':
+        return False
+    else:
+        return value
+
 
 if __name__ == '__main__':
     main()

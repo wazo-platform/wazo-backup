@@ -83,11 +83,11 @@ class TestBackupRestoreConsulFile(BaseBackupIntegrationTest):
     def test_that_restoring_backed_up_kv_via_file_restore_consul_kv(self):
         self.consul().kv.put('xivo/test', 'test', flags=42)
 
-        self.backup('-H consul -t {token} -o /var/tmp/consul_kv.json'.format(token=DEFAULT_TOKEN))
+        self.backup('-H consul -t {token} --scheme http -o /var/tmp/consul_kv.json'.format(token=DEFAULT_TOKEN))
 
         self.clear_consul()
 
-        self.restore(input_=None, args='-H consul -t {token} -i /var/tmp/consul_kv.json'.format(token=DEFAULT_TOKEN))
+        self.restore(input_=None, args='-H consul -t {token} --scheme http -i /var/tmp/consul_kv.json'.format(token=DEFAULT_TOKEN))
 
         result = self.consul().kv.get('xivo/test')
         assert_that(result[1], has_entries({'Key': 'xivo/test',
@@ -107,11 +107,11 @@ class TestBackupRestoreConsulTokenAuto(BaseBackupIntegrationTest):
     def test_that_backup_restore_find_token_in_file(self):
         self.consul().kv.put('xivo/test', 'test', flags=42)
 
-        backup = self.backup('-H consul')
+        backup = self.backup('-H consul --scheme http')
 
         self.clear_consul()
 
-        self.restore(backup, args='-H consul'.format(token=DEFAULT_TOKEN))
+        self.restore(backup, args='-H consul --scheme http')
 
         result = self.consul().kv.get('xivo/test')
         assert_that(result[1], has_entries({'Key': 'xivo/test',
@@ -131,7 +131,7 @@ class TestBackupConsulHostPortToken(BaseBackupIntegrationTest):
     def test_that_host_port_options_are_used(self):
         self.consul().kv.put('xivo/test', 'test')
 
-        output = self.backup('-H consul-other-host -p 8501 -t the_other_token')
+        output = self.backup('-H consul-other-host -p 8501 -t the_other_token --scheme http')
 
         result = json.loads(output)
         assert_that(result[1], contains(has_entries({'Key': 'xivo/test',
@@ -149,7 +149,7 @@ class TestRestoreConsulHostPortToken(BaseBackupIntegrationTest):
 
     def test_that_host_port_options_are_used(self):
 
-        self.restore(RESTORE_DATA, args='-H consul-other-host -p 8501 -t the_other_token')
+        self.restore(RESTORE_DATA, args='-H consul-other-host -p 8501 -t the_other_token --scheme http')
 
         result = self.consul().kv.get('xivo/test')
         assert_that(result[1], has_entries({'Key': 'xivo/test',
