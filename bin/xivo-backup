@@ -67,6 +67,7 @@ case "${BACKUP_TYPE}" in
                  /usr/share/xivo/XIVO-VERSION
                  /var/lib/asterisk/
                  /var/lib/consul/
+                 /var/lib/xivo-manage-tokens/
                  /var/lib/xivo-provd/
                  /var/lib/xivo/
                  /var/log/asterisk/
