@@ -1,4 +1,4 @@
-xivo-backup (12.21~20121023.125432.8022a91-6) squeeze-xivo-skaro-dev; urgency=low
+xivo-backup (12.21~20121023.125432.8022a91) xivo-dev; urgency=low
 
   * fix pre-depends
 
