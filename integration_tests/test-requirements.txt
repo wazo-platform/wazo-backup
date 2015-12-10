@@ -1,4 +1,4 @@
 docker-compose
-pyhamcrest
+pyhamcrest==1.8.0
 nose
-python-consul==0.4.2
+python-consul==0.4.7
