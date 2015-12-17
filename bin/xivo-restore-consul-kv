@@ -19,6 +19,7 @@
 import argparse
 import json
 import sys
+import urllib
 
 from consul import Consul
 
@@ -65,7 +66,7 @@ def main():
 
     consul = Consul(host=args.host, port=args.port, token=args.token, scheme=args.scheme, verify=args.verify)
     for kv in consul_kv:
-        consul.kv.put(encode_utf8(kv['Key']), encode_utf8(kv['Value']), flags=encode_utf8(kv['Flags']))
+        consul.kv.put(urllib.quote(encode_utf8(kv['Key'])), encode_utf8(kv['Value']), flags=encode_utf8(kv['Flags']))
 
 
 def read_token_file():
