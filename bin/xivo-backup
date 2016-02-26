@@ -39,6 +39,7 @@ BACKUP_FILE=${BACKUP_FILE}.tgz
 case "${BACKUP_TYPE}" in
   data)
     BACKUP_LIST="/etc/asterisk/
+                 /etc/consul/
                  /etc/dahdi/
                  /etc/dhcp/
                  /etc/hostname
