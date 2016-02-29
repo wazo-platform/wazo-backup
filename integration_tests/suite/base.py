@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2015 Avencall
+# Copyright (C) 2015-2016 Avencall
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -57,7 +57,8 @@ class BaseBackupIntegrationTest(unittest.TestCase):
             try:
                 Consul(**kwargs).kv.get('fullybooted')
                 return
-            except ConsulException:
+            except (ConsulException, ValueError) as e:
+                print('exception raised while waiting for consul:', e)
                 time.sleep(.5)
         else:
             Consul(**kwargs).kv.get('fullybooted')
