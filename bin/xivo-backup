@@ -48,8 +48,10 @@ case "${BACKUP_TYPE}" in
                  /etc/network/if-up.d/xivo-routes
                  /etc/network/interfaces
                  /etc/ntp.conf
+                 /etc/profile.d/xivo_uuid.sh
                  /etc/resolv.conf
                  /etc/ssl/
+                 /etc/systemd/
                  /etc/wanpipe/
                  /etc/xivo-agentd/
                  /etc/xivo-agid/
