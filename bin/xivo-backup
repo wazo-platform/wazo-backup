@@ -40,6 +40,7 @@ case "${BACKUP_TYPE}" in
   data)
     BACKUP_LIST="/etc/asterisk/
                  /etc/consul/
+                 /etc/crontab
                  /etc/dahdi/
                  /etc/dhcp/
                  /etc/hostname
@@ -68,6 +69,7 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-purge-db/
                  /etc/xivo-websocketd/
                  /etc/xivo/
+                 /usr/local/bin/
                  /usr/local/sbin/
                  /usr/share/xivo/XIVO-VERSION
                  /var/lib/asterisk/
@@ -75,7 +77,8 @@ case "${BACKUP_TYPE}" in
                  /var/lib/xivo-provd/
                  /var/lib/xivo/
                  /var/log/asterisk/
-                 /var/spool/asterisk/"
+                 /var/spool/asterisk/
+                 /var/spool/cron/crontabs/"
     FILTER_DIRS="/var/lib/xivo/sounds
                  /var/lib/asterisk/sounds/custom
                  /var/lib/asterisk/moh
