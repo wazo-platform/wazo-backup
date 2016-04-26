@@ -85,6 +85,7 @@ case "${BACKUP_TYPE}" in
                  /var/spool/asterisk/voicemail
                  /var/spool/asterisk/monitor"
     EXCLUDE_FILES="/var/lib/xivo-provd/plugins/*/var/cache/*
+                   /var/lib/xivo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld
                    /var/spool/asterisk/monitor
                    /var/spool/asterisk/meetme"
 
