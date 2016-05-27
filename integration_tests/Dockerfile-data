@@ -1,5 +1,0 @@
-from busybox
-
-RUN mkdir -p /var/tmp
-
-VOLUME /var/tmp
