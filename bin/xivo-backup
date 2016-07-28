@@ -32,7 +32,7 @@ ionice -c 3 -p "$$"
 [ -e /etc/xivo/common.conf ] && . /etc/xivo/common.conf
 DEFAULT_MAX_SOUND_FILE_SIZE=10M
 DEFAULT_MAX_FILES_PER_SOUND_DIR=100
-XIVO_VERSION=$(LANG="C" apt-cache policy xivo | grep Installed | grep -oE '([0-9]{2}\.[0-9]+|1\.2\.[0-9]{1,2})' | head -n1)
+XIVO_VERSION="$(cat /usr/share/xivo/XIVO-VERSION 2>/dev/null || echo 'unknown')"
 BACKUP_FILE=${BACKUP_FILE}.tgz
 
 
