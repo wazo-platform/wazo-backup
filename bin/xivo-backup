@@ -73,9 +73,7 @@ case "${BACKUP_TYPE}" in
                  /usr/local/sbin/
                  /usr/share/xivo/XIVO-VERSION
                  /var/lib/asterisk/
-                 /var/lib/consul/default_xivo_consul_config.yml
-                 /var/lib/consul/default_xivo_consul_token.yml
-                 /var/lib/consul/master_token
+                 /var/lib/consul/
                  /var/lib/xivo-provd/
                  /var/lib/xivo/
                  /var/log/asterisk/
@@ -86,7 +84,11 @@ case "${BACKUP_TYPE}" in
                  /var/lib/asterisk/moh
                  /var/spool/asterisk/voicemail
                  /var/spool/asterisk/monitor"
-    EXCLUDE_FILES="/var/lib/xivo-provd/plugins/*/var/cache/*
+    EXCLUDE_FILES="/var/lib/consul/checks
+                   /var/lib/consul/raft
+                   /var/lib/consul/serf
+                   /var/lib/consul/services
+                   /var/lib/xivo-provd/plugins/*/var/cache/*
                    /var/lib/xivo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld
                    /var/spool/asterisk/monitor
                    /var/spool/asterisk/meetme"
