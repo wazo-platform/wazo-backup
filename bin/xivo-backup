@@ -140,7 +140,10 @@ case "${BACKUP_TYPE}" in
     mkdir ${PG_TMPDIR}
 
     cd /var/lib/postgresql
-    sudo -u postgres pg_dump -Fc asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
+    sudo -u postgres pg_dump -Fc \
+        --exclude-table-data=auth_acl \
+        --exclude-table-data=auth_token \
+        asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
     cd ${OLDPWD}
 
     tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
