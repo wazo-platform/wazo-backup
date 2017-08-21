@@ -34,6 +34,7 @@ case "${BACKUP_TYPE}" in
                  /etc/hostname
                  /etc/hosts
                  /etc/ldap/
+                 /etc/mongooseim/
                  /etc/network/if-up.d/xivo-routes
                  /etc/network/interfaces
                  /etc/ntp.conf
