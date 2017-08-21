@@ -20,7 +20,7 @@ ionice -c 3 -p "$$"
 [ -e /etc/xivo/common.conf ] && . /etc/xivo/common.conf
 DEFAULT_MAX_SOUND_FILE_SIZE=10M
 DEFAULT_MAX_FILES_PER_SOUND_DIR=100
-XIVO_VERSION="$(cat /usr/share/xivo/XIVO-VERSION 2>/dev/null || echo 'unknown')"
+WAZO_VERSION="$(cat /usr/share/xivo/XIVO-VERSION 2>/dev/null || echo 'unknown')"
 BACKUP_FILE=${BACKUP_FILE}.tgz
 
 
@@ -134,7 +134,7 @@ case "${BACKUP_TYPE}" in
     sudo -u postgres pg_dump -Fc \
         --exclude-table-data=auth_acl \
         --exclude-table-data=auth_token \
-        asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
+        asterisk > ${PG_TMPDIR}/asterisk-${WAZO_VERSION}.dump
     cd ${OLDPWD}
 
     tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
