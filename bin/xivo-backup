@@ -1,18 +1,6 @@
 #!/bin/sh
 # Copyright 2015-2017 The Wazo Authors  (see the AUTHORS file)
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
+# SPDX-License-Identifier: GPL-3.0+
 
 PATH=/usr/sbin:/usr/bin:/sbin:/bin
 BACKUP_TYPE=$1
@@ -32,7 +20,7 @@ ionice -c 3 -p "$$"
 [ -e /etc/xivo/common.conf ] && . /etc/xivo/common.conf
 DEFAULT_MAX_SOUND_FILE_SIZE=10M
 DEFAULT_MAX_FILES_PER_SOUND_DIR=100
-XIVO_VERSION="$(cat /usr/share/xivo/XIVO-VERSION 2>/dev/null || echo 'unknown')"
+WAZO_VERSION="$(cat /usr/share/xivo/XIVO-VERSION 2>/dev/null || echo 'unknown')"
 BACKUP_FILE=${BACKUP_FILE}.tgz
 
 
@@ -46,6 +34,7 @@ case "${BACKUP_TYPE}" in
                  /etc/hostname
                  /etc/hosts
                  /etc/ldap/
+                 /etc/mongooseim/
                  /etc/network/if-up.d/xivo-routes
                  /etc/network/interfaces
                  /etc/ntp.conf
@@ -146,7 +135,8 @@ case "${BACKUP_TYPE}" in
     sudo -u postgres pg_dump -Fc \
         --exclude-table-data=auth_acl \
         --exclude-table-data=auth_token \
-        asterisk > ${PG_TMPDIR}/asterisk-${XIVO_VERSION}.dump
+        asterisk > ${PG_TMPDIR}/asterisk-${WAZO_VERSION}.dump
+    sudo -u postgres pg_dump -Fc mongooseim > ${PG_TMPDIR}/mongooseim-${WAZO_VERSION}.dump
     cd ${OLDPWD}
 
     tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
