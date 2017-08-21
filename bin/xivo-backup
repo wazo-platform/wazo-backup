@@ -135,6 +135,7 @@ case "${BACKUP_TYPE}" in
         --exclude-table-data=auth_acl \
         --exclude-table-data=auth_token \
         asterisk > ${PG_TMPDIR}/asterisk-${WAZO_VERSION}.dump
+    sudo -u postgres pg_dump -Fc mongooseim > ${PG_TMPDIR}/mongooseim-${WAZO_VERSION}.dump
     cd ${OLDPWD}
 
     tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
