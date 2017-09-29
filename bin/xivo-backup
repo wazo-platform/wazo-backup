@@ -49,7 +49,7 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-agentd/
                  /etc/xivo-agid/
                  /etc/xivo-amid/
-                 /etc/xivo-auth/
+                 /etc/wazo-auth/
                  /etc/xivo-call-logd/
                  /etc/xivo-confd/
                  /etc/xivo-confgend-client/
