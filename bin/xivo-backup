@@ -50,7 +50,7 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-agid/
                  /etc/xivo-amid/
                  /etc/wazo-auth/
-                 /etc/xivo-call-logd/
+                 /etc/wazo-call-logd/
                  /etc/xivo-confd/
                  /etc/xivo-confgend-client/
                  /etc/xivo-ctid/
