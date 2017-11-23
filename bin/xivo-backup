@@ -76,7 +76,8 @@ case "${BACKUP_TYPE}" in
                  /var/lib/asterisk/moh
                  /var/spool/asterisk/voicemail
                  /var/spool/asterisk/monitor"
-    EXCLUDE_FILES="/var/lib/consul/checks
+    EXCLUDE_FILES="/var/lib/asterisk/astdb.sqlite3-journal
+                   /var/lib/consul/checks
                    /var/lib/consul/raft
                    /var/lib/consul/serf
                    /var/lib/consul/services
