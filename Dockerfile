@@ -1,5 +1,5 @@
-FROM python:2.7.9
-MAINTAINER XiVO Team "dev+docker@proformatique.com"
+FROM python:2.7.13
+MAINTAINER Wazo Maintainers <dev@wazo.community>
 
 ADD . /usr/src/xivo-backup
 
