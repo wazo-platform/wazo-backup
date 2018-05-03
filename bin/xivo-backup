@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright 2015-2017 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2015-2018 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0+
 
 PATH=/usr/sbin:/usr/bin:/sbin:/bin
@@ -44,6 +44,7 @@ case "${BACKUP_TYPE}" in
                  /etc/systemd/
                  /etc/wanpipe/
                  /etc/wazo-admin-ui/
+                 /etc/wazo-dird/
                  /etc/wazo-plugind/
                  /etc/wazo-webhookd/
                  /etc/xivo-agentd/
@@ -55,7 +56,6 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-confgend-client/
                  /etc/xivo-ctid/
                  /etc/xivo-ctid-ng/
-                 /etc/xivo-dird/
                  /etc/xivo-dird-phoned/
                  /etc/xivo-dxtora/
                  /etc/xivo-purge-db/
