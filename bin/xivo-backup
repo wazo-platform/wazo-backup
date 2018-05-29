@@ -137,7 +137,15 @@ case "${BACKUP_TYPE}" in
         --exclude-table-data=auth_acl \
         --exclude-table-data=auth_token \
         asterisk > ${PG_TMPDIR}/asterisk-${WAZO_VERSION}.dump
+    if [ $? -ne 0 ]; then
+        (>&2 echo "error while dumping the asterisk DB")
+        exit 1
+    fi
     sudo -u postgres pg_dump -Fc mongooseim > ${PG_TMPDIR}/mongooseim-${WAZO_VERSION}.dump
+    if [ $? -ne 0 ]; then
+        (>&2 echo "error while dumping the mongooseim DB")
+        exit 1
+    fi
     cd ${OLDPWD}
 
     tar cpzf ${BACKUP_FILE} -C ${TMPDIR} ${PG_DIR}
