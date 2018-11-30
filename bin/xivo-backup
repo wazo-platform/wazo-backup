@@ -61,6 +61,7 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-purge-db/
                  /etc/xivo-websocketd/
                  /etc/xivo/
+                 /root/.config/wazo-auth-cli/
                  /usr/local/bin/
                  /usr/local/sbin/
                  /usr/share/xivo/XIVO-VERSION
