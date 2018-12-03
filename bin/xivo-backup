@@ -43,7 +43,6 @@ case "${BACKUP_TYPE}" in
                  /etc/ssl/
                  /etc/systemd/
                  /etc/wanpipe/
-                 /etc/wazo-admin-ui/
                  /etc/wazo-dird/
                  /etc/wazo-plugind/
                  /etc/wazo-webhookd/
