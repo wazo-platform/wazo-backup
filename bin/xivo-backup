@@ -1,6 +1,6 @@
 #!/bin/sh
-# Copyright 2015-2018 The Wazo Authors  (see the AUTHORS file)
-# SPDX-License-Identifier: GPL-3.0+
+# Copyright 2015-2019 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 PATH=/usr/sbin:/usr/bin:/sbin:/bin
 BACKUP_TYPE=$1
@@ -43,6 +43,7 @@ case "${BACKUP_TYPE}" in
                  /etc/ssl/
                  /etc/systemd/
                  /etc/wanpipe/
+                 /etc/wazo-chatd/
                  /etc/wazo-dird/
                  /etc/wazo-plugind/
                  /etc/wazo-webhookd/
