@@ -55,7 +55,6 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-confd/
                  /etc/xivo-confgend-client/
                  /etc/xivo-ctid-ng/
-                 /etc/xivo-ctid/
                  /etc/xivo-dird-phoned/
                  /etc/xivo-dxtora/
                  /etc/xivo-purge-db/
