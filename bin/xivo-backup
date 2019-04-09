@@ -34,7 +34,6 @@ case "${BACKUP_TYPE}" in
                  /etc/hostname
                  /etc/hosts
                  /etc/ldap/
-                 /etc/mongooseim/
                  /etc/network/if-up.d/xivo-routes
                  /etc/network/interfaces
                  /etc/ntp.conf
@@ -140,11 +139,6 @@ case "${BACKUP_TYPE}" in
         asterisk > ${PG_TMPDIR}/asterisk-${WAZO_VERSION}.dump
     if [ $? -ne 0 ]; then
         (>&2 echo "error while dumping the asterisk DB")
-        exit 1
-    fi
-    sudo -u postgres pg_dump -Fc mongooseim > ${PG_TMPDIR}/mongooseim-${WAZO_VERSION}.dump
-    if [ $? -ne 0 ]; then
-        (>&2 echo "error while dumping the mongooseim DB")
         exit 1
     fi
     cd ${OLDPWD}
