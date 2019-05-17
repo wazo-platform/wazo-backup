@@ -49,6 +49,7 @@ case "${BACKUP_TYPE}" in
                  /etc/wazo-dird/
                  /etc/wazo-plugind/
                  /etc/wazo-webhookd/
+                 /etc/wazo-websocketd/
                  /etc/xivo-agentd/
                  /etc/xivo-agid/
                  /etc/xivo-amid/
@@ -57,7 +58,6 @@ case "${BACKUP_TYPE}" in
                  /etc/xivo-dird-phoned/
                  /etc/xivo-dxtora/
                  /etc/xivo-purge-db/
-                 /etc/xivo-websocketd/
                  /etc/xivo/
                  /root/.config/wazo-auth-cli/
                  /usr/local/bin/
