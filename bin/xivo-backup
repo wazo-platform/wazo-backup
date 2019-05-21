@@ -67,11 +67,11 @@ case "${BACKUP_TYPE}" in
                  /var/lib/consul/
                  /var/lib/wazo-auth-keys/
                  /var/lib/xivo-provd/
-                 /var/lib/xivo/
+                 /var/lib/wazo/
                  /var/log/asterisk/
                  /var/spool/asterisk/
                  /var/spool/cron/crontabs/"
-    FILTER_DIRS="/var/lib/xivo/sounds
+    FILTER_DIRS="/var/lib/wazo/sounds
                  /var/lib/asterisk/sounds/custom
                  /var/lib/asterisk/moh
                  /var/spool/asterisk/voicemail
