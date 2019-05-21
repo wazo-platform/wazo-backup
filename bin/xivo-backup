@@ -20,7 +20,7 @@ ionice -c 3 -p "$$"
 [ -e /etc/xivo/common.conf ] && . /etc/xivo/common.conf
 DEFAULT_MAX_SOUND_FILE_SIZE=10M
 DEFAULT_MAX_FILES_PER_SOUND_DIR=100
-WAZO_VERSION="$(cat /usr/share/xivo/XIVO-VERSION 2>/dev/null || echo 'unknown')"
+WAZO_VERSION="$(cat /usr/share/wazo/WAZO-VERSION 2>/dev/null || echo 'unknown')"
 BACKUP_FILE=${BACKUP_FILE}.tgz
 
 
@@ -62,7 +62,7 @@ case "${BACKUP_TYPE}" in
                  /root/.config/wazo-auth-cli/
                  /usr/local/bin/
                  /usr/local/sbin/
-                 /usr/share/xivo/XIVO-VERSION
+                 /usr/share/wazo/WAZO-VERSION
                  /var/lib/asterisk/
                  /var/lib/consul/
                  /var/lib/wazo-auth-keys/
