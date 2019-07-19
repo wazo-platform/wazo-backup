@@ -51,13 +51,13 @@ case "${BACKUP_TYPE}" in
                  /etc/wazo-dird/
                  /etc/wazo-dird-phoned/
                  /etc/wazo-plugind/
+                 /etc/wazo-purge-db/
                  /etc/wazo-webhookd/
                  /etc/wazo-websocketd/
                  /etc/xivo-agid/
                  /etc/xivo-amid/
                  /etc/xivo-confgend-client/
                  /etc/xivo-dxtora/
-                 /etc/xivo-purge-db/
                  /etc/xivo/
                  /root/.config/wazo-auth-cli/
                  /usr/local/bin/
