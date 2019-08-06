@@ -43,6 +43,7 @@ case "${BACKUP_TYPE}" in
                  /etc/systemd/
                  /etc/wanpipe/
                  /etc/wazo-agentd/
+                 /etc/wazo-agid/
                  /etc/wazo-auth/
                  /etc/wazo-call-logd/
                  /etc/wazo-calld/
@@ -54,7 +55,6 @@ case "${BACKUP_TYPE}" in
                  /etc/wazo-purge-db/
                  /etc/wazo-webhookd/
                  /etc/wazo-websocketd/
-                 /etc/xivo-agid/
                  /etc/xivo-amid/
                  /etc/xivo-confgend-client/
                  /etc/xivo-dxtora/
