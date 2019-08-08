@@ -66,7 +66,7 @@ case "${BACKUP_TYPE}" in
                  /var/lib/asterisk/
                  /var/lib/consul/
                  /var/lib/wazo-auth-keys/
-                 /var/lib/xivo-provd/
+                 /var/lib/wazo-provd/
                  /var/lib/wazo/
                  /var/log/asterisk/
                  /var/spool/asterisk/
@@ -81,8 +81,8 @@ case "${BACKUP_TYPE}" in
                    /var/lib/consul/raft
                    /var/lib/consul/serf
                    /var/lib/consul/services
-                   /var/lib/xivo-provd/plugins/*/var/cache/*
-                   /var/lib/xivo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld
+                   /var/lib/wazo-provd/plugins/*/var/cache/*
+                   /var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld
                    /var/spool/asterisk/monitor
                    /var/spool/asterisk/meetme"
 
