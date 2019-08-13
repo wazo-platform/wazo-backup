@@ -50,7 +50,7 @@ case "${BACKUP_TYPE}" in
                  /etc/wazo-confd/
                  /etc/wazo-chatd/
                  /etc/wazo-dird/
-                 /etc/wazo-dird-phoned/
+                 /etc/wazo-phoned/
                  /etc/wazo-plugind/
                  /etc/wazo-purge-db/
                  /etc/wazo-webhookd/
