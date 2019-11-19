@@ -62,6 +62,7 @@ case "${BACKUP_TYPE}" in
                  /root/.config/wazo-auth-cli/
                  /usr/local/bin/
                  /usr/local/sbin/
+                 /usr/local/share/
                  /usr/share/wazo/WAZO-VERSION
                  /var/lib/asterisk/
                  /var/lib/consul/
