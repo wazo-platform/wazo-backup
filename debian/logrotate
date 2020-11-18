@@ -3,6 +3,7 @@
 	rotate 7
 	nocompress
 	create 640 root www-data
+	missingok
 	postrotate
 		/usr/sbin/xivo-backup data /var/backups/xivo/data
 	endscript
@@ -12,6 +13,7 @@
 	rotate 7
 	nocompress
 	create 640 root www-data
+	missingok
 	postrotate
 		/usr/sbin/xivo-backup db /var/backups/xivo/db
 	endscript
