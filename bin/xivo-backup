@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright 2015-2019 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2015-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 PATH=/usr/sbin:/usr/bin:/sbin:/bin
@@ -84,8 +84,7 @@ case "${BACKUP_TYPE}" in
                    /var/lib/consul/services
                    /var/lib/wazo-provd/plugins/*/var/cache/*
                    /var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld
-                   /var/spool/asterisk/monitor
-                   /var/spool/asterisk/meetme"
+                   /var/spool/asterisk/monitor"
 
     # backup existing directories only
     WOULD_BACKUP=
