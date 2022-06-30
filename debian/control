@@ -1,15 +1,15 @@
-Source: xivo-backup
+Source: wazo-backup
 Section: comm
 Priority: extra
-Maintainer: Wazo Maintainers <dev.wazo@gmail.com>
+Maintainer: Wazo Maintainers <dev@wazo.community>
 Build-Depends: cdbs (>= 0.4.23-1.1), debhelper (>= 9)
 Standards-Version: 3.9.6
 
-Package: xivo-backup
+Package: wazo-backup
 Architecture: all
-Provides: pf-xivo-backup
-Conflicts: pf-xivo-backup
-Replaces: pf-xivo-backup
+Provides: xivo-backup
+Conflicts: xivo-backup
+Replaces: xivo-backup
 Description: Wazo backup scripts
  Wazo is a system based on a powerful IPBX, to bring an easy to
  install solution for telephony and related services.

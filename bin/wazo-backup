@@ -1,8 +1,13 @@
-#!/bin/sh
-# Copyright 2015-2021 The Wazo Authors  (see the AUTHORS file)
+#!/bin/bash
+# Copyright 2015-2022 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 PATH=/usr/sbin:/usr/bin:/sbin:/bin
+
+if [ "$(basename "$0")" == 'xivo-backup' ]; then
+    echo 'Warning: xivo-backup is a deprecated alias to wazo-backup: use wazo-backup instead' >&2
+fi
+
 BACKUP_TYPE=$1
 if [ -z "${BACKUP_TYPE}" ]; then
     echo "Please give backup type" >&2

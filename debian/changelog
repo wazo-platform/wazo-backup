@@ -1,3 +1,9 @@
+wazo-backup (22.10~20121023.125432) wazo-dev-buster; urgency=medium
+
+  * rename xivo-backup to wazo-backup
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Thu, 30 Jun 2022 08:30:11 -0400
+
 xivo-backup (12.21~20121023.125432.8022a91) xivo-dev; urgency=low
 
   * fix pre-depends
