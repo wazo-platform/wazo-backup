@@ -1,11 +1,11 @@
-/var/backups/xivo/data.tgz {
+/var/backups/wazo/data.tgz {
 	daily
 	rotate 7
 	nocompress
 	create 640 root www-data
 	missingok
 }
-/var/backups/xivo/db.tgz {
+/var/backups/wazo/db.tgz {
 	daily
 	rotate 7
 	nocompress
