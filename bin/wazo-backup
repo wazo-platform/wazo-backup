@@ -32,7 +32,6 @@ BACKUP_FILE=${BACKUP_FILE}.tgz
 case "${BACKUP_TYPE}" in
   data)
     BACKUP_LIST="/etc/asterisk/
-                 /etc/consul/
                  /etc/crontab
                  /etc/dahdi/
                  /etc/dhcp/
@@ -70,7 +69,6 @@ case "${BACKUP_TYPE}" in
                  /usr/local/share/
                  /usr/share/wazo/WAZO-VERSION
                  /var/lib/asterisk/
-                 /var/lib/consul/
                  /var/lib/wazo-auth-keys/
                  /var/lib/wazo-provd/
                  /var/lib/wazo/
@@ -83,10 +81,6 @@ case "${BACKUP_TYPE}" in
                  /var/spool/asterisk/voicemail
                  /var/spool/asterisk/monitor"
     EXCLUDE_FILES="/var/lib/asterisk/astdb.sqlite3-journal
-                   /var/lib/consul/checks
-                   /var/lib/consul/raft
-                   /var/lib/consul/serf
-                   /var/lib/consul/services
                    /var/lib/wazo-provd/plugins/*/var/cache/*
                    /var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld
                    /var/spool/asterisk/monitor"
