@@ -7,9 +7,6 @@ Standards-Version: 3.9.6
 
 Package: wazo-backup
 Architecture: all
-Provides: xivo-backup
-Conflicts: xivo-backup
-Replaces: xivo-backup
 Description: Wazo backup scripts
  Wazo is a system based on a powerful IPBX, to bring an easy to
  install solution for telephony and related services.
